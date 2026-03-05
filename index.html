@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile Card</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .profile-card {
+            background: linear-gradient(145deg, #2a2a4e, #1e1e3f);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(138, 43, 226, 0.2);
+            padding: 40px;
+            max-width: 800px;
+            width: 90%;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+        }
+
+        .profile-details {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #b19cd9;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-stream {
+            font-size: 1.2rem;
+            color: #a78bfa;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .profile-bio {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #d1d5db;
+            margin-bottom: 0;
+        }
+
+        .profile-image-container {
+            flex-shrink: 0;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #8b5cf6, #a855f7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.4);
+            border: 4px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-image::before {
+            content: "👤";
+        }
+
+        @media (max-width: 768px) {
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .profile-name {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="profile-details">
+            <h1 class="profile-name">Sihilel Himasara Wickramarathna</h1>
+            <p class="profile-stream">Mathematics (Common) Stream</p>
+            <p class="profile-bio">
+                From Panadura, Sihilel Himasara Wickramarathna attended Sri Sumangala College for his O/Ls and Mahanama College Colombo for A/Ls. Currently pursuing undergraduate studies in Mathematics at the University of Colombo School of Computing, he demonstrates a strong commitment to academic excellence and technological innovation. With a passion for learning, he aims to contribute meaningfully to the field of computing.
+            </p>
+        </div>
+        <div class="profile-image-container">
+            <div class="profile-image"></div>
+        </div>
+    </div>
+</body>
+</html>
