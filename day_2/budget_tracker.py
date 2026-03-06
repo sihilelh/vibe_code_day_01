@@ -18,22 +18,32 @@ def budget_tracker():
             print("Invalid input. Please enter a valid number.")
     
     print()
-    print("Enter your 3 expenses:")
+    print("Enter your expenses (type 'done' when finished):")
     print("-" * 50)
     
-    # Get 3 expenses
+    # Get expenses until user types 'done'
     expenses = []
-    for i in range(1, 4):
-        while True:
-            try:
-                expense = float(input(f"Expense {i} (LKR): "))
-                if expense < 0:
-                    print("Expense cannot be negative. Please enter a valid amount.")
-                    continue
-                expenses.append(expense)
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
+    expense_count = 1
+    while True:
+        user_input = input(f"Expense {expense_count} (LKR) or 'done': ").strip()
+        
+        # Check if user wants to exit
+        if user_input.lower() == 'done':
+            if len(expenses) == 0:
+                print("Please enter at least one expense.")
+                continue
+            break
+        
+        # Try to convert to float
+        try:
+            expense = float(user_input)
+            if expense < 0:
+                print("Expense cannot be negative. Please enter a valid amount.")
+                continue
+            expenses.append(expense)
+            expense_count += 1
+        except ValueError:
+            print("Invalid input. Please enter a valid number or 'done'.")
     
     # Calculate total expenses
     total_expenses = sum(expenses)
@@ -62,6 +72,11 @@ def budget_tracker():
         print(f"Remaining Balance:     LKR {remaining_balance:,.2f} (OVERSPENT)")
     
     print("=" * 50)
+    
+    # Warn if low funds
+    if remaining_balance < 500 and remaining_balance >= 0:
+        print("\033[91m\033[1m⚠️  WARNING: LOW FUNDS ⚠️\033[0m")
+        print("\033[93mYour remaining balance is less than LKR 500\033[0m")
 
 
 if __name__ == "__main__":
